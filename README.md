@@ -12,7 +12,7 @@ title: # e.g. Professor, Dr etc
 name: # Your full name
 grant_code: # Grant code starting with GXXXX
 four_digits: # Last four digits of your bank account number
-payroll: # Your eight digit payrole reference number
+payroll: # Your eight digit payroll reference number
 ```
 
 Now you can install the package and create your expense report.
@@ -42,12 +42,11 @@ Now log in to your expensify account.
 1.  Download the Expensify Report \'Expense Summary\' (top right corner
     on this link: <https://www.expensify.com/reports?param=>{}). Save it
     as `YYYY-MM-DD-bulk-export-id-expense-summary.csv` and update the
-    `expense_data_csv` variable below.
-:::
+    `expense_data_csv` variable below  (use the real, year, date and month to keep track of things).
 
 ::: {.cell .code}
 ``` {.python}
-expense_data_csv = '2021-05-08-bulk-export-id-expense-summary.csv'
+expense_data_csv = 'YYYY-MM-DD-bulk-export-id-expense-summary.csv'
 ```
 :::
 
