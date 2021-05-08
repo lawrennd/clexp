@@ -32,10 +32,10 @@ Now log in to your expensify account.
 1.  Download the Expensify Report \'Expense Summary\' (top right corner
     on this link: <https://www.expensify.com/reports?param=>{}). Save it
     as `YYYY-MM-DD-bulk-export-id-expense-summary.csv` and update the
-    `expense_data_csv` variable below.
+    `expense_data_csv` variable below (use the real, year, date and month to keep track of things)
 
 ``` {.python}
-expense_data_csv = '2021-05-08-bulk-export-id-expense-summary.csv'
+expense_data_csv = 'YYYY-MM-DD-bulk-export-id-expense-summary.csv'
 ```
 
 ## Run the Script
