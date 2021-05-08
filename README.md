@@ -1,5 +1,6 @@
-::: {.cell .markdown}
-# CLEXP Module for working with CL Expense Forms
+# clexp
+
+Module for working with CL Expense Forms
 
 This is a short script for aiding in creating expense statement forms for the computer lab.
 
