@@ -71,7 +71,7 @@ def write_claim(data_df, template_df):
     print('Writing Report ID:', report_id, 'titled:', report_title, 'for', report_date)
     
     store_df = template_df.copy()
-    store_df['D'][1] = config['title'] + ' ' + config['full_name']
+    store_df['D'][1] = config['title'] + ' ' + config['name']
     store_df['D'][3] = 'Report {report_id}. {report_title}'.format(report_id=report_id, report_title=report_title)
     
     start_row = 8
