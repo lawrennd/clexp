@@ -128,13 +128,13 @@ def write_claim(data_df, template_df):
     report_filename = '{report_date}-claim-{report_id}-{report_title}.xlsx'.format(report_date=report_date,
                                                                                    report_id = report_id,
                                                                                    report_title=report_title.lower().replace(' ', '-'))
-    filename = os.path.join(expense_directory, report_filename)
+    filename = os.path.join(config['expense_directory'], report_filename)
     from shutil import copyfile
     write_file = True
     if os.path.exists(filename):
         write_file = prompt_stdin('The file {filename} exists, overwrite (y/n)?'.format(filename=filename))
     if write_file:
-        copyfile(os.path.join(expense_directory, template_file), filename)
+        copyfile(os.path.join(expense_directory['expense_directory'], template_file), filename)
         writer = pd.ExcelWriter(filename,
                                engine='xlsxwriter')
         store_df.to_excel(writer, sheet_name='Expenses claim', index=False,header=False)
