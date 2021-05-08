@@ -16,27 +16,18 @@ payroll: # Your eight digit payroll reference number
 ```
 
 Now you can install the package and create your expense report.
-:::
 
-::: {.cell .code}
-
-``` {.python}
+```python
 %pip install git+https://github.com/lawrennd/clexp.git
 ```
-:::
 
-::: {.cell .markdown}
 You can download the template expense claim form from here.
-:::
 
-::: {.cell .code}
-``` {.python}
+```python
 import urllib.request
 urllib.request.urlretrieve('https://github.com/lawrennd/clexp/raw/main/template-expense-claims-partii.xlsx', 'template-expense-claims-partii.xlsx')
 ```
-:::
 
-::: {.cell .markdown}
 Now log in to your expensify account.
 
 1.  Download the Expensify Report \'Expense Summary\' (top right corner
@@ -44,21 +35,16 @@ Now log in to your expensify account.
     as `YYYY-MM-DD-bulk-export-id-expense-summary.csv` and update the
     `expense_data_csv` variable below  (use the real, year, date and month to keep track of things).
 
-::: {.cell .code}
-``` {.python}
+```python
 expense_data_csv = 'YYYY-MM-DD-bulk-export-id-expense-summary.csv'
 ```
-:::
 
-::: {.cell .markdown}
 ## Run the Script
 
 Run the script below. It will create a separate excel spreadsheet
     for each report.
-:::
 
-::: {.cell .code}
-``` {.python}
+```python
 import os
 import sys
 from datetime import date
@@ -81,9 +67,7 @@ report_ids = pd.unique(data_df.report_id)
 for i in report_ids:
     df2 = exp.write_claim(data_df[data_df.report_id==i], form_df)
 ```
-:::
 
-::: {.cell .code}
 ## Submit the result
 
 1.  Open `template-expense-claims-partii.xlsx`, select all (Ctrl + A).
@@ -100,6 +84,5 @@ for i in report_ids:
     matches the excel file.
 
 4.  Email the CL Accounts Team with the attached PDF and Excel
-    spreadshett.
+    spreadsheet.
 
-:::
