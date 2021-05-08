@@ -26,7 +26,8 @@ You can download the template expense claim form from here.
 
 ```python
 import urllib.request
-urllib.request.urlretrieve('https://github.com/lawrennd/clexp/raw/main/template-expense-claims-partii.xlsx', 'template-expense-claims-partii.xlsx')
+urllib.request.urlretrieve('https://github.com/lawrennd/clexp/raw/main/template-expense-claims-partii.xlsx',
+                           'template-expense-claims-partii.xlsx')
 ```
 
 Now log in to your expensify account.
