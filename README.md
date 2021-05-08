@@ -11,7 +11,7 @@ title: # e.g. Professor, Dr etc
 name: # Your full name
 grant_code: # Grant code starting with GXXXX
 four_digits: # Last four digits of your bank account number
-payroll: # Your eight digit payrole reference number
+payroll: # Your eight digit payroll reference number
 ```
 
 Now you can install the package and create your expense report.
