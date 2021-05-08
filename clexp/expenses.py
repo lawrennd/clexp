@@ -14,7 +14,7 @@ category_map = {'Car, Van and Travel Expenses: Hotel Rooms': 'Hotel',
 template_file = 'template-expense-claims-partii.xlsx'
 
 
-with open('_config.yaml') as file:
+with open('_config.yml') as file:
     config = yaml.load(file, Loader=yaml.FullLoader)
 
 
