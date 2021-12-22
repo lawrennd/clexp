@@ -4,7 +4,7 @@ Module for working with CL Expense Forms
 
 This is a short script for aiding in creating expense statement forms for the computer lab.
 
-Before you start, create a file in your working directory called `_config.yaml`
+Before you start, create a file in your working directory called `_config.yml`
 
 It should be of the following form
 
