@@ -1,7 +1,10 @@
 import os
 from datetime import date
+import re
 import pandas as pd
 import yaml
+
+from .config import *
 
 
 # Map from expensify categories to Cambridge Uni Catagories
@@ -11,11 +14,6 @@ category_map = {'Car, Van and Travel Expenses: Hotel Rooms': 'Hotel',
        'Car, Van and Travel Expenses: Meal (Overnight Business Trip)': 'Meal',
        'Car, Van and Travel Expenses: Air': 'Flight'}
 
-template_file = 'template-expense-claims-partii.xlsx'
-
-
-with open('_config.yml') as file:
-    config = yaml.load(file, Loader=yaml.FullLoader)
 
 
 def prompt_stdin(prompt):
@@ -128,17 +126,21 @@ def write_claim(data_df, template_df):
     report_filename = '{report_date}-claim-{report_id}-{report_title}.xlsx'.format(report_date=report_date,
                                                                                    report_id = report_id,
                                                                                    report_title=report_title.lower().replace(' ', '-'))
-    filename = os.path.join(config['directory'], report_filename)
+    filename = os.path.expandvars(os.path.join(config['directory'], report_filename))
+    write_excel(store_df, filename, sheet_name='Expenses claim', index=False, header=False)
+
+def write_excel(df, filename, **kwargs):
+    """Write an excel file to disk"""
     from shutil import copyfile
     write_file = True
     if os.path.exists(filename):
         write_file = prompt_stdin('The file {filename} exists, overwrite (y/n)?'.format(filename=filename))
     if write_file:
-        copyfile(os.path.join(config['directory'], template_file), filename)
+        copyfile(os.path.expandvars(os.path.join(config['directory'], config['template_file'])), filename)
         writer = pd.ExcelWriter(filename,
                                engine='xlsxwriter')
-        store_df.to_excel(writer, sheet_name='Expenses claim', index=False,header=False)
+        df.to_excel(writer, **kwargs)
         writer.save()
     else:
         print("Skipping {filename} as it already exists.".format(filename=filename))
-    return store_df
+    return df
