@@ -123,7 +123,7 @@ def write_claim(data_df, template_df):
     store_df['F'][27] = config['four_digits']
     store_df['C'][27] = config['payroll']
     date.today().strftime("%Y-%m-%d")
-    report_filename = '{report_date}-claim-{report_id}-{report_title}.xlsx'.format(report_date=report_date,
+    report_filename = '{report_date}_claim-{report_id}_{report_title}.xlsx'.format(report_date=report_date,
                                                                                    report_id = report_id,
                                                                                    report_title=report_title.lower().replace(' ', '-'))
     filename = os.path.expandvars(os.path.join(config['directory'], report_filename))
